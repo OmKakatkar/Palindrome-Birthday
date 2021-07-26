@@ -1,5 +1,6 @@
 const birthDay = document.querySelector("#birthday");
 const check = document.querySelector("#check");
+const output = document.querySelector("#output");
 
 check.addEventListener("click", () => {
   clickHandler(birthDay.value.split("-"));
@@ -10,24 +11,28 @@ function clickHandler(date) {
   let strDate1 = date[2] + date[1] + date[0];
   if (isPalindrome(strDate1)) {
     console.log("Wow! Your Birthday is a Palindrome");
+    output.innerHTML = "Wow! Your Birthday is a Palindrome";
     return;
   }
   // dd-mm-yyyy
   let strDate2 = date[1] + date[2] + date[0];
   if (isPalindrome(strDate2)) {
     console.log("Wow! Your Birthday is a Palindrome");
+    output.innerHTML = "Wow! Your Birthday is a Palindrome";
     return;
   }
   // mm-dd-yy
   let strDate3 = date[1] + date[2] + date[0].slice(2, 4);
   if (isPalindrome(strDate3)) {
     console.log("Wow! Your Birthday is a Palindrome");
+    output.innerHTML = "Wow! Your Birthday is a Palindrome";
     return;
   }
   let data = nearestPalindrome(strDate2, date);
   console.log(
     `Aww! Not a palindrome. Nearest Palindrome date is ${data[0]}. You missed by ${data[1]} days.`
   );
+  output.innerHTML = `Aww! Not a palindrome. Nearest Palindrome date is ${data[0]}. You missed by ${data[1]} days.`;
   return;
 }
 
@@ -46,7 +51,7 @@ function nearestPalindrome(dt2, date) {
     p_date1 = new Date(2001, 1, 10);
     p_days = (p_date1.getTime() - b_date.getTime()) / (1000 * 60 * 60 * 24);
     print_date = "10-02-2001";
-    return [print_date, p_days];
+    return [print_date, Math.abs(p_days)];
   }
 
   // Check if the date and month is valid
@@ -68,7 +73,7 @@ function nearestPalindrome(dt2, date) {
           p_days =
             (b_date.getTime() - p_date1.getTime()) / (1000 * 60 * 60 * 24);
         }
-        return [print_date, p_days];
+        return [print_date, Math.abs(p_days)];
       }
       // Get a new date
       date_y = (date_y - 1).toString();
@@ -88,7 +93,10 @@ function nearestPalindrome(dt2, date) {
       }
     } while (true);
   }
-  return ["Unknown", "Unknown"];
+  // TODO: Complete the UI
+  // TODO: Implement calculation for future years and compare with previous
+  // TODO: Check for other formats
+  // Its okay if you are unable to complete the last 2 steps
 }
 
 function isPalindrome(input) {

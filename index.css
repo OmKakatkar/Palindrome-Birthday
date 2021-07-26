@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(
+    to bottom,
+    rgba(106, 200, 243, 0.75),
+    rgba(253, 40, 93, 0.75)
+  );
+}
+
+main {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(to bottom, rgb(106, 200, 243), rgb(253, 40, 93));
+  height: 100vh;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+.label {
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 2.8rem;
+  padding-top: 1.75rem;
+  color: rgb(139, 17, 17);
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  width: 75%;
+  margin: 0 auto;
+  font-weight: 100;
+}
+
+.label {
+  font-size: 1.4rem;
+}
+
+#check {
+  font-size: 1rem;
+  display: block;
+  margin: 1rem auto;
+  padding: 0.5em 1em;
+}
+
+#birthday {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+#output {
+  font-size: 1.5rem;
+  width: 75%;
+  margin: 0 auto;
+}
