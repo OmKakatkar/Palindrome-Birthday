@@ -3,10 +3,15 @@ const check = document.querySelector("#check");
 const output = document.querySelector("#output");
 
 check.addEventListener("click", () => {
-  clickHandler(birthDay.value.split("-"));
+  clickHandler(birthDay.value);
 });
 
 function clickHandler(date) {
+  if (date == "") {
+    output.innerHTML = "Please enter a date";
+    return;
+  }
+  date = date.split("-");
   // mm-dd-yyyy
   let strDate1 = date[2] + date[1] + date[0];
   if (isPalindrome(strDate1)) {
